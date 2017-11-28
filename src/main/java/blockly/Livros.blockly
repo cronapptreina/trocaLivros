@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blockly formTarget="" resourceType="JAVA" ruleDescription="Livros" ruleName="Livros" ruleSynchronous="false" ruleType="I">
+<block colour="#995ba5" id="Anb:u5+^,0vLkL9QIqn5" tooltip="Livros - antesInserir" type="procedures_defreturn" x="-350" y="130">
+<mutation>
+  <arg name="Entidade&lt;app.entity.Livro&gt;"/>
+</mutation>
+<field name="NAME">antesInserir</field>
+<comment h="80" pinned="false" w="160">Livros</comment>
+</block>
+</blockly>
