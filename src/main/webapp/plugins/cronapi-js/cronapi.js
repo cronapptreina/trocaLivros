@@ -459,6 +459,19 @@
   this.cronapi.util.executeJavascriptReturn = function(value) {
     return eval( value );
   };
+  
+  /**
+   * @type function
+   * @name {{openReport}}
+   * @nameTags openReport|abrirrelatorio
+   * @description {{openReportDescription}}
+   * @param {ObjectType.STRING} value {{report}}
+   * @multilayer true
+   * @returns {ObjectType.VOID}
+   */  
+//  this.cronapi.util.openReport = function(/** @type {ObjectType.STRING} @blockType util_report_list */ name) {
+//    this.cronapi.$scope.getReport(name);
+//  };
 
   /**
    * @category CategoryType.SCREEN
@@ -551,7 +564,6 @@
   /**
    * @type function
    * @name {{screenNotifyName}}
-   * @platform W
    * @description {{screenNotifyDescription}}
    * @param {ObjectType.STRING} type {{screenNotifyParam0}}
    * @param {ObjectType.STRING} message {{screenNotifyParam1}}
@@ -749,11 +761,24 @@
    */
   this.cronapi.screen.getParam = function(paramName) {
     try {
-      return this.cronapi.$scope.params[paramName];
+      
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for(var i = 0; i < hashes.length; i++)
+    {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+      
+      if (vars[paramName] !== undefined)
+        return decodeURIComponent(vars[paramName]);
     }
     catch (e) {
-      alert(e);
+      //
     }
+    
+    return null;
   };
 
 
